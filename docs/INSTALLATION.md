@@ -82,7 +82,7 @@ git commit -m "Initial commit"
 
 ```bash
 # Add theme as submodule
-git submodule add https://github.com/chaoming/hugo-saasify-theme.git themes/hugo-saasify-theme
+git submodule add https://github.com/lukasztomalczyk/hugo-saasify-theme.git themes/hugo-saasify-theme
 
 # Update submodule
 git submodule update --init --recursive
@@ -158,7 +158,7 @@ If you already have a Hugo site and want to add the Saasify theme.
 
 ```bash
 # From your site root directory
-git submodule add https://github.com/chaoming/hugo-saasify-theme.git themes/hugo-saasify-theme
+git submodule add https://github.com/lukasztomalczyk/hugo-saasify-theme.git themes/hugo-saasify-theme
 
 # Update submodule
 git submodule update --init --recursive
@@ -239,7 +239,7 @@ For users who prefer not to use Git submodules or need more control over the ins
 
 ```bash
 # Download and extract theme
-curl -L https://github.com/chaoming/hugo-saasify-theme/archive/refs/heads/main.zip -o theme.zip
+curl -L https://github.com/lukasztomalczyk/hugo-saasify-theme/archive/refs/heads/main.zip -o theme.zip
 unzip theme.zip
 mv hugo-saasify-theme-main themes/hugo-saasify-theme
 rm theme.zip

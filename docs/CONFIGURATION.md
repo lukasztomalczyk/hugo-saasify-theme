@@ -1140,5 +1140,5 @@ If you're having configuration issues:
 
 1. Check [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 2. Review the [example configuration](../exampleSite/hugo.toml)
-3. Visit [GitHub Issues](https://github.com/chaoming/hugo-saasify-theme/issues)
+3. Visit [GitHub Issues](https://github.com/lukasztomalczyk/hugo-saasify-theme/issues)
 4. Consult [Hugo Documentation](https://gohugo.io/documentation/)

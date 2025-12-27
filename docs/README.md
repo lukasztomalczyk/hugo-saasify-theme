@@ -40,7 +40,7 @@ cd my-saas-site
 
 # 2. Add theme as submodule
 git init
-git submodule add https://github.com/chaoming/hugo-saasify-theme themes/hugo-saasify-theme
+git submodule add https://github.com/lukasztomalczyk/hugo-saasify-theme themes/hugo-saasify-theme
 
 # 3. Copy example site
 cp -r themes/hugo-saasify-theme/exampleSite/* .
@@ -277,8 +277,8 @@ This theme includes:
 ## 🔗 Useful Links
 
 - [Demo Site](https://saasify-demo.chaoming.li)
-- [GitHub Repository](https://github.com/chaoming/hugo-saasify-theme)
-- [Report Issues](https://github.com/chaoming/hugo-saasify-theme/issues)
+- [GitHub Repository](https://github.com/lukasztomalczyk/hugo-saasify-theme)
+- [Report Issues](https://github.com/lukasztomalczyk/hugo-saasify-theme/issues)
 - [Hugo Documentation](https://gohugo.io/documentation/)
 - [TailwindCSS Documentation](https://tailwindcss.com/docs)
 
@@ -288,8 +288,8 @@ Need help?
 
 1. **Check the Documentation** - Start with the relevant guide above
 2. **Review Troubleshooting** - See [Troubleshooting Guide](TROUBLESHOOTING.md)
-3. **Search Issues** - Check [existing issues](https://github.com/chaoming/hugo-saasify-theme/issues)
-4. **Ask for Help** - Open a [new issue](https://github.com/chaoming/hugo-saasify-theme/issues/new) with:
+3. **Search Issues** - Check [existing issues](https://github.com/lukasztomalczyk/hugo-saasify-theme/issues)
+4. **Ask for Help** - Open a [new issue](https://github.com/lukasztomalczyk/hugo-saasify-theme/issues/new) with:
    - Hugo version (`hugo version`)
    - Node version (`node --version`)
    - Error messages

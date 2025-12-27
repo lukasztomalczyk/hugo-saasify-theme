@@ -94,7 +94,7 @@ git submodule update --init --recursive
 git submodule deinit -f themes/hugo-saasify-theme
 rm -rf .git/modules/themes/hugo-saasify-theme
 git rm -f themes/hugo-saasify-theme
-git submodule add https://github.com/chaoming/hugo-saasify-theme.git themes/hugo-saasify-theme
+git submodule add https://github.com/lukasztomalczyk/hugo-saasify-theme.git themes/hugo-saasify-theme
 ```
 
 ### npm Dependencies Failed
@@ -761,8 +761,8 @@ ver  # Windows
 2. **Example Site**: Review working examples in `/exampleSite`
 
 3. **GitHub Issues**:
-   - Search: [Existing Issues](https://github.com/chaoming/hugo-saasify-theme/issues)
-   - Create: [New Issue](https://github.com/chaoming/hugo-saasify-theme/issues/new)
+   - Search: [Existing Issues](https://github.com/lukasztomalczyk/hugo-saasify-theme/issues)
+   - Create: [New Issue](https://github.com/lukasztomalczyk/hugo-saasify-theme/issues/new)
 
 4. **Hugo Community**:
    - [Hugo Discourse](https://discourse.gohugo.io/)

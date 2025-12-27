@@ -16,11 +16,11 @@ Perfect for creating high-converting SaaS landing pages, product marketing sites
 
 Whether you're launching a new SaaS product or refreshing your marketing site, Hugo Saasify Theme helps you build a professional web presence quickly and efficiently.
 
-![Hugo Saasify Theme Screenshot](https://raw.githubusercontent.com/chaoming/hugo-saasify-theme/main/screenshots/screenshot1.png)
+![Hugo Saasify Theme Screenshot](https://raw.githubusercontent.com/lukasztomalczyk/hugo-saasify-theme/main/screenshots/screenshot1.png)
 
-![Hugo Saasify Theme Screenshot 2](https://raw.githubusercontent.com/chaoming/hugo-saasify-theme/main/screenshots/screenshot2.png)
+![Hugo Saasify Theme Screenshot 2](https://raw.githubusercontent.com/lukasztomalczyk/hugo-saasify-theme/main/screenshots/screenshot2.png)
 
-![Hugo Saasify Theme Screenshot 3](https://raw.githubusercontent.com/chaoming/hugo-saasify-theme/main/screenshots/screenshot3.png)
+![Hugo Saasify Theme Screenshot 3](https://raw.githubusercontent.com/lukasztomalczyk/hugo-saasify-theme/main/screenshots/screenshot3.png)
 
 [Demo Site](https://saasify-demo.chaoming.li)
 
@@ -75,7 +75,7 @@ cd your-site-name
 
 ```bash
 git init
-git submodule add https://github.com/chaoming/hugo-saasify-theme themes/hugo-saasify-theme
+git submodule add https://github.com/lukasztomalczyk/hugo-saasify-theme themes/hugo-saasify-theme
 ```
 
 ### 3. Example Site (Optional)
@@ -446,14 +446,14 @@ Learn more at [fireact.dev](https://fireact.dev/) or view the [GitHub repository
 
 ## License
 
-This theme is released under the [MIT license](https://github.com/chaoming/hugo-saasify-theme/blob/main/LICENSE).
+This theme is released under the [MIT license](https://github.com/lukasztomalczyk/hugo-saasify-theme/blob/main/LICENSE).
 
 ## Quick Links
 
 - 📖 [Documentation](docs/README.md)
 - 🎨 [Demo Site](https://saasify-demo.chaoming.li)
-- 🐛 [Report Issues](https://github.com/chaoming/hugo-saasify-theme/issues)
-- 💬 [Discussions](https://github.com/chaoming/hugo-saasify-theme/discussions)
+- 🐛 [Report Issues](https://github.com/lukasztomalczyk/hugo-saasify-theme/issues)
+- 💬 [Discussions](https://github.com/lukasztomalczyk/hugo-saasify-theme/discussions)
 
 ## Support
 

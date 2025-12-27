@@ -5,6 +5,8 @@
 {{ $secondary_button_text := .Get "secondary_button_text" }}
 {{ $secondary_button_url := .Get "secondary_button_url" }}
 {{ $hero_image := .Get "hero_image" }}
+{{ $hero_video_id := .Get "hero_video_id" }}
+{{ $hero_video_url := .Get "hero_video_url" }}
 {{ $background_image := .Get "background_image" }}
 {{ $gradient_from := .Get "gradient-from" }}
 {{ $gradient_to := .Get "gradient-to" }}
@@ -39,7 +41,20 @@
                 </div>
             </div>
             <div class="relative">
-                {{ if $hero_image }}
+                {{ if or $hero_video_id $hero_video_url }}
+                <div class="relative z-10">
+                    <div class="relative w-full" style="padding-top: 56.25%"> <!-- 16:9 aspect ratio -->
+                        <iframe class="absolute inset-0 w-full h-full rounded-xl shadow-elevation"
+                                src="{{ if $hero_video_id }}https://www.youtube-nocookie.com/embed/{{ $hero_video_id }}{{ else }}{{ $hero_video_url }}{{ end }}"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                {{ else if $hero_image }}
                 <div class="relative z-10">
                     <img src="{{ $hero_image | relURL }}" alt="Hero Image" class="rounded-xl shadow-elevation">
                 </div>

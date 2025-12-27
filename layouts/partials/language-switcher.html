@@ -1,9 +1,12 @@
 {{ if hugo.IsMultilingual }}
 {{ $headerConfig := .Site.Params.header }}
 {{ $dropdownConfig := $headerConfig.menu.dropdown }}
+{{ $codes := dict "en" "EN" "pl" "PL" }}
 <div class="relative group">
+    {{ $currentFlag := printf "/images/flags/%s.svg" .Site.Language.Lang }}
     <button class="flex items-center {{ with $headerConfig.menu.linkClass }}{{ . }}{{ else }}text-base text-gray-900 hover:text-primary-600 font-bold transition duration-200{{ end }}">
-        {{ .Site.Language.LanguageName }}
+        <img src="{{ $currentFlag | relURL }}" alt="" class="w-4 h-4 mr-2" aria-hidden="true" />
+        <span>{{ index $codes .Site.Language.Lang | default (upper .Site.Language.Lang) }}</span>
         <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
@@ -12,9 +15,13 @@
         <div class="{{ $dropdownConfig.container_padding | default "py-6" }} {{ $dropdownConfig.background | default "bg-white" }} {{ $dropdownConfig.border | default "border border-gray-100" }} {{ $dropdownConfig.shadow | default "shadow-xl" }} {{ $dropdownConfig.radius | default "rounded-lg" }}">
             {{ range .Site.Languages }}
                 {{ if ne $.Site.Language.Lang .Lang }}
-                {{ $langURL := printf "/%s/" .Lang }}
-                <a href="{{ $langURL }}" class="language-switch-link block {{ $dropdownConfig.item_padding | default "px-8 py-3" }} {{ $dropdownConfig.text_size | default "text-sm" }} {{ $dropdownConfig.text_color | default "text-gray-700" }} {{ $dropdownConfig.hover_background | default "hover:bg-gray-50" }}" data-lang="{{ .Lang }}">
-                    {{ .LanguageName }}
+                {{ $lang := . }}
+                {{ $translated := index (where $.Translations "Lang" $lang.Lang) 0 }}
+                {{ $flag := printf "/images/flags/%s.svg" $lang.Lang }}
+                <a href="{{ if $translated }}{{ $translated.RelPermalink }}{{ else }}{{ printf "/%s/" $lang.Lang }}{{ end }}" class="language-switch-link flex items-center {{ $dropdownConfig.item_padding | default "px-8 py-3" }} {{ $dropdownConfig.text_size | default "text-sm" }} {{ $dropdownConfig.text_color | default "text-gray-700" }} {{ $dropdownConfig.hover_background | default "hover:bg-gray-50" }}" data-lang="{{ $lang.Lang }}">
+                    <img src="{{ $flag | relURL }}" alt="" class="w-4 h-4 mr-2" aria-hidden="true" />
+                    <span class="font-medium">{{ index $codes $lang.Lang | default (upper $lang.Lang) }}</span>
+                    <span class="sr-only">{{ $lang.LanguageName }}</span>
                 </a>
                 {{ end }}
             {{ end }}

@@ -1,3 +1,5 @@
+Develop has my own changes for EasyDeploy
+
 # Hugo Saasify Theme
 
 A modern and elegant Hugo theme specifically designed for building **SaaS marketing websites**. Built with TailwindCSS, this theme provides a clean, professional look while maintaining excellent performance and customization options.
@@ -235,11 +237,11 @@ paginatePath = "page"
       ]
   [[menu.main]]
     name = "Pricing"
-    url = "/pricing"
+    url = "/pricing/"
     weight = 2
   [[menu.main]]
     name = "Blog"
-    url = "/blog"
+    url = "/blog/"
     weight = 3
 ```
 

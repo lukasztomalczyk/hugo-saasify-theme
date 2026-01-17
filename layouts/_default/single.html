@@ -18,7 +18,9 @@
 
                 <h1 class="text-4xl font-bold mb-4">{{ .Title }}</h1>
                 
-                {{ partial "post-meta.html" . }}
+                {{ if eq .Section "blog" }}
+                    {{ partial "post-meta.html" . }}
+                {{ end }}
             </header>
 
             {{ with .Params.featured_image }}

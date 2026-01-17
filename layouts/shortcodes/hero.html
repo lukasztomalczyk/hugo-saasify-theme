@@ -45,7 +45,7 @@
                 <div class="relative z-10">
                     <div class="relative w-full" style="padding-top: 56.25%"> <!-- 16:9 aspect ratio -->
                         <iframe class="absolute inset-0 w-full h-full rounded-xl shadow-elevation"
-                                src="{{ if $hero_video_id }}https://www.youtube-nocookie.com/embed/{{ $hero_video_id }}{{ else }}{{ $hero_video_url }}{{ end }}"
+                            src="{{ if $hero_video_id }}https://www.youtube-nocookie.com/embed/{{ $hero_video_id }}?enablejsapi=1{{ else }}{{ $hero_video_url }}{{ end }}"
                                 title="YouTube video player"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

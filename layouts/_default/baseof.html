@@ -96,6 +96,12 @@
     <!-- Footer -->
     {{ partial "footer" . }}
 
+    <!-- Cookie Consent Banner -->
+    {{ partial "cookie-consent" . }}
+
+    <!-- Environment Analytics -->
+    <script src="{{ printf "%s?v=%d" (absURL "js/environment-analytics.js") (now.Unix) }}" defer></script>
+
     <!-- Language Preference Script -->
     {{ if hugo.IsMultilingual }}
     {{ if .Site.Params.visitorapi_pid }}

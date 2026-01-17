@@ -33,7 +33,8 @@
                 </div>
             </div>
 
-            <!-- Column 1 -->
+            <!-- Column 1 (render only if items exist) -->
+            {{ if .Site.Menus.footer_column_1 }}
             <div class="flex-1">
                 <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-900 mb-4">{{ .Site.Params.footer.column_1_title }}</h3>
                 <ul class="space-y-2">
@@ -42,6 +43,7 @@
                     {{ end }}
                 </ul>
             </div>
+            {{ end }}
 
             <!-- Column 2 -->
             <div class="flex-1">

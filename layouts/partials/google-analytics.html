@@ -1,10 +1,34 @@
-{{ if and hugo.IsProduction .Site.Params.googleAnalytics }}
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalytics }}"></script>
+<!-- Google Analytics (GA4) - production and dev (localhost) -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{ .Site.Params.googleAnalytics }}');
-</script>
-{{ end }}
+  (function() {
+    var prodGaId = '{{ .Site.Params.googleAnalytics }}';
+    var devGaId = '{{ .Site.Params.googleAnalyticsDev }}';
+    var devTagId = '{{ .Site.Params.googleTagDev }}'; // Optional Google Tag (GT-XXXX) for localhost
+    var host = (typeof location !== 'undefined' && location.hostname) || '';
+    var isLocal = (host === 'localhost' || host === '127.0.0.1');
+    // Prefer Google Tag ID for dev if provided, else GA4 measurement ID
+    var gaId = isLocal ? (devTagId || devGaId) : prodGaId;
+    var consent = null;
+    try { consent = localStorage.getItem('analytics_consent'); } catch (e) {}
+
+    function loadGA() {
+      if (!gaId) return;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+      document.head.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      window.gtag = gtag;
+      gtag('js', new Date());
+      // Configure using whichever ID is available
+      gtag('config', gaId);
+    }
+
+    if (consent === 'granted') {
+      loadGA();
+    }
+    // Expose helper for consent banner to call after opt-in
+    window.__loadGAAfterConsent = loadGA;
+  })();
+  </script>

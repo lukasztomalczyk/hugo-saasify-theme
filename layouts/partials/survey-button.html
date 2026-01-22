@@ -1,6 +1,16 @@
+{{ $surveyURL := (cond (eq .Site.Language.Lang "pl") "https://forms.gle/PsTLNXNdwNsQzMYN6" "https://forms.gle/YHbMz7jSFWZCvZKHA") }}
 <div class="fixed bottom-6 right-6 z-50">
-  <a id="survey-button"
-     href="https://forms.gle/PsTLNXNdwNsQzMYN6"
+  <div class="relative">
+    <!-- Attention Nudge Icon -->
+    <div class="pointer-events-none absolute right-0 z-10" id="survey-nudge-icon" style="top:-15px">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-8 h-8">
+        <circle cx="12" cy="12" r="10" fill="#f59e0b"></circle>
+        <rect x="11" y="6" width="2" height="8" rx="1" fill="white"></rect>
+        <circle cx="12" cy="16.5" r="1.5" fill="white"></circle>
+      </svg>
+    </div>
+    <a id="survey-button"
+     href="{{ $surveyURL }}"
      target="_blank"
      rel="noopener noreferrer"
      aria-label="{{ if eq .Site.Language.Lang "pl" }}Wypełnij ankietę{{ else }}Take the survey{{ end }}"
@@ -11,8 +21,56 @@
     <span class="font-semibold">
       {{ if eq .Site.Language.Lang "pl" }}Wypełnij ankietę{{ else }}Take the survey{{ end }}
     </span>
-  </a>
+    </a>
+  </div>
 </div>
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    @keyframes survey-shake {
+      0%   { transform: translate3d(0,0,0) rotate(0deg); }
+      15%  { transform: translate3d(-1px,0,0) rotate(-2deg); }
+      30%  { transform: translate3d(2px,0,0) rotate(2deg); }
+      45%  { transform: translate3d(-2px,0,0) rotate(-2deg); }
+      60%  { transform: translate3d(2px,0,0) rotate(2deg); }
+      75%  { transform: translate3d(-1px,0,0) rotate(-1deg); }
+      100% { transform: translate3d(0,0,0) rotate(0deg); }
+    }
+    .shake-active { animation: survey-shake 0.8s ease-in-out; }
+  }
+</style>
+<script>
+  (function(){
+    var icon = document.getElementById('survey-nudge-icon');
+    if (!icon) return;
+    var reduce = false;
+    try {
+      reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch (_) {}
+    if (reduce) return;
+
+    function triggerShake(){
+      icon.classList.add('shake-active');
+      setTimeout(function(){ icon.classList.remove('shake-active'); }, 900);
+    }
+
+    // Initial nudge shortly after load
+    try { setTimeout(triggerShake, 500); } catch (_) {}
+
+    // Also nudge on hover/focus of the button
+    try {
+      var btn = document.getElementById('survey-button');
+      if (btn) {
+        btn.addEventListener('mouseenter', triggerShake);
+        btn.addEventListener('focus', triggerShake);
+      }
+    } catch (_) {}
+
+    // Periodic attention nudge (every ~5s)
+    try {
+      setInterval(triggerShake, 5000);
+    } catch (_) {}
+  })();
+</script>
 <script>
   (function(){
     var btn = document.getElementById('survey-button');
@@ -24,7 +82,7 @@
           event: 'survey_cta_click',
           page_path: (typeof location !== 'undefined' && location.pathname) || '/',
           language: '{{ .Site.Language.Lang }}',
-          link_url: 'https://forms.gle/PsTLNXNdwNsQzMYN6'
+          link_url: '{{ $surveyURL }}'
         });
       } catch (e) {}
     });
